@@ -1,0 +1,16 @@
+.DS_Store
+*.swp
+.env*
+*.example
+.git
+.gitignore
+.editorconfig
+.dockerignore
+Dockerfile*
+Makefile
+*-compose*.yml
+*.md
+LICENSE
+pkg
+bin
+vendor

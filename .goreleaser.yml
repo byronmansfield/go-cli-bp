@@ -1,0 +1,19 @@
+# Build customization
+builds:
+  - main: ./cmd/main.go
+    binary: cli-bp
+    goos:
+      - darwin
+      - linux
+    goarch:
+      - amd64
+
+# Archive customization
+archive:
+  format: tar.gz
+  files:
+    - drum-roll.licence.txt
+
+# Sign artifacts with GnuPG key
+sign:
+   artifacts: checksum
