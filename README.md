@@ -1,47 +1,71 @@
 # Golang cli tool boilerplate Repo
 
-A simple repo to store some common new repo setup config files for writing a new Golang cli tool. I started this repository to have a solution to initializing new git projects. I'm lazy, and hate trying to keep track or all these things or forget to add something, etc. Most of these boilerplate files will have a full list of things that will more than likely not be needed by most projects. It's just easier to delete what you don't need, rather than search around for the things (over and over) that you need but don't bother to computer to memory.
+A Golang Command Line Tool Boilerplate repo. This is designed to help you quickly get up and running making a command line tool app in Golang without having to manually set it up each time. You should be able to clone this repo and follow the initial set up instructions and then start writing you app.
+
+There are likely more things included than needed. This is just so you have them available. Delete what you don't want or won't use.
 
 ## Usage
 
 Basic idea/workflow.
 
-### Start a new project
+### Start a new project and initialize it
+
+#### Clone project and cd into it
 
 ```bash
 cd $GOPATH/src/github.com/<myuser>
-git clone git@github.com:byronmansfield/go-cli-bp.git myapp
-cd myapp
+git clone git@github.com:byronmansfield/go-cli-bp.git myApp
+cd myApp
 ```
 
-#### Initialize new blank cli app
+#### Initialize and Setup the project
 
-I don't have a solution to this yet. I need to go back and add this once I figure out which path I want to take for doing this step.
+First open up the `Makefile` and change the project name. It should be the variable at the top of the `Makefile` called `APPNAME`. This will create a top level directory with this name where all of your commands will live. It will also be the name of the executable that will be your command line tool.
 
-One idea is to have a go package you would simple `go get` and install, then say `go-bp init`.
+Once you have made this change, save the file, exit, and run
 
-Another idea is to have `make` do it from a target in the `Makefile`
+```bash
+make setup
+```
 
-Another idea is to have a bash script for the setup. Which could overlap with the `make` idea
+You should have a working command line app. It won't do much yet, but you should everything set up you need in order to start writing it.
 
-The final idea would be to have a `docker` container do this for you. Then you would just have to follow up with `git clone`
+### Suggested first steps
 
-## Tools
+You may want to make some initial changes like the maintainers name and email at the top of the `main.go` file, the `LICENSE` file, the `CONTRIBUTING.md` doc, or the `README.md`
 
-The tools included in this boilerplate project are
+You probably want to tell `git` where the project lives so you can push your changes
 
- - editorconfig
- - gitignore - this is mostly copy and pasted from gitignore.io for most of the tools I can think of that would be needed for most Golang cli projects, including editors and OS's
+```bash
+git remote add origin https://github.com/user/repo.git
+```
+
+You also probably want to familiarize your self with the tools used in this project, so that you can write your application in a manor that flows with their patterns.
+
+ - [Cobra](https://github.com/spf13/cobra]) is the framework, their [official go docs are here](https://godoc.org/github.com/spf13/cobra), and official page is [here](http://spf13.com/post/announcing-cobra/).
+ - [goreleaser](https://goreleaser.com/) is the releasing tool
+ - [dep](https://golang.github.io/dep/) is the dependency management tool
+
+It is probably also wise to familiarize yourself with the `Makefile` to customize the targets for your needs.
+
+## Included Tools
+
+The tools included in this boilerplate project are:
+
+ - [editorconfig](http://editorconfig.org/)
+ - gitignore - this is mostly copy and pasted from [gitignore.io](https://www.gitignore.io/) for most of the tools I can think of that would be needed for most Golang cli projects, including editors and OS's
  - dockerignore - This includes most of the platforma, documentations, dependency managment, vim swp files, and other common tools for Golang cli projects
  - Dockerfile
  - Makefile
- - Contributing mark down file
- - License
- - Readme mark down
- - golang/dep
- - goreleaser
- - cobra
+ - Contributing document
+ - MIT License
+ - Readme
+ - [dep](https://golang.github.io/dep/) - For dependency management of go packages
+ - [goreleaser](https://goreleaser.com/) - To release the project with official github release support
+ - [Cobra](https://github.com/spf13/cobra) - Command Line Framework
+ - Custom version bumping script for official releases
 
-## Summary
+## Closing
 
-That's it for now. Have fun!
+That's it for now. Now go make some cli tools!
+
