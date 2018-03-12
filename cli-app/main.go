@@ -14,7 +14,7 @@
 
 package main
 
-import "github.com/byronmansfield/cli-bp/cli-app/cmd"
+import "github.com/byronmansfield/go-cli-bp/cli-app/cmd"
 
 func main() {
 	cmd.Execute()

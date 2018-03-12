@@ -29,10 +29,14 @@ $(error You need to create a GIT_TAG file to deploy)
 endif
 
 go_build:
+	cd $(APPNAME)
 	go build -o mypackage
+	cd ..
 
 go_install:
+	cd $(APPNAME)
 	go install
+	cd ..
 
 dep_init:
 	go get -u github.com/spf13/cobra/cobra
@@ -48,6 +52,7 @@ git_tag:
 	git push origin $(GIT_TAG)
 
 go_release:
-	git_tag goreleaser
+	git_tag
+	goreleaser
 
-.PHONY release setup install build go_build go_install dep_init git_tag go_release
+.PHONY: release setup install build go_build go_install dep_init git_tag go_release

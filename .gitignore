@@ -47,6 +47,9 @@ _testmain.go
 # external packages folder
 vendor/
 
+# project executable name
+cli-app
+
 
 ### Linux ###
 *~
